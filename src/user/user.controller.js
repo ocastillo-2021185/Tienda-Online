@@ -4,8 +4,8 @@ import User from './user.model.js'
 import {    encrypt, 
             checkPassword, 
             checkUpdate 
-        } from '../utils/validator.js'
-import { generateJwt } from '../utils/jwt.js'
+        } from '../../utils/validator.js'
+import { generateJwt } from '../../utils/jwt.js'
 
 export const test = (req, res)=>{
     console.log('test is running')
@@ -20,6 +20,25 @@ export const registerUser = async(req, res)=>{
         data.password = await encrypt(data.password)
         //Asignar el rol por defecto
         data.role = 'CLIENT'
+        //Guardar la información en la BD
+        let user = new User(data)
+        await user.save() //Guardar en la BD
+        //Responder al usuario
+        return res.send({message: `Registered successfully, can be logged with username ${user.username}`})
+    }catch(err){
+        console.error(err)
+        return res.status(500).send({message: 'Error registering user', err: err})
+    }
+}
+
+export const registerAdmin = async(req, res)=>{
+    try{
+        //Capturar el formulario (body)
+        let data = req.body
+        //Encriptar la contraseña
+        data.password = await encrypt(data.password)
+        //Asignar el rol por defecto
+        data.role = 'ADMIN'
         //Guardar la información en la BD
         let user = new User(data)
         await user.save() //Guardar en la BD
@@ -104,5 +123,28 @@ export const deleteU = async(req, res)=>{
     }catch(err){
         console.error(err)
         return res.status(500).send({message: 'Error deleting account'})
+    }
+}
+
+export const defaultAdmin = async () => {
+    try {
+        const createUser = await User.findOne({ username: 'default' })
+        if (createUser) {
+            return; 
+        }
+        let data = {
+            name: 'default',
+            surname: 'default',
+            username: 'default',
+            email: 'default@gamil.com',
+            phone: '12345678',
+            password: await encrypt('12345678'),
+            role: 'ADMIN'
+        }
+        let user = new User(data)
+        await user.save()
+        console.log('Admin for default created with username "default" and password "123"')
+    } catch (error) {
+        console.error(error)
     }
 }

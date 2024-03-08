@@ -69,3 +69,20 @@ export const deleteCategory = async (req, res) => {
 }
 
 
+export const defaultCategory = async () => {
+    try {
+        let createCategory = await Category.findOne({ name: 'Default' });
+        if (createCategory) {
+            return; 
+        }
+        let data = {
+            name: 'Default',
+            description: 'Default categry'
+        }
+        let category = new Category(data)
+        await category.save()
+
+    } catch (error) {
+        console.error(error)
+    }
+}

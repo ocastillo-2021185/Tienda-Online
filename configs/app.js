@@ -10,6 +10,9 @@ import cors from 'cors'
 import { config } from "dotenv"
 import userRoutes from '../src/user/user.routes.js'
 import categoryRoutes from '../src/category/category.routes.js'
+import productRoutes from '../src/product/product.routes.js'
+import checkRoutes from '../src/check/check.routes.js'
+import cartRoutes from '../src/cart/cart.routes.js'
 
 
 //Configuraciones
@@ -27,6 +30,9 @@ app.use(morgan('dev')) //Logs de solicitudes al servidor HTTP
 //Declaración de rutas
 app.use(userRoutes)
 app.use(categoryRoutes)
+app.use(productRoutes)
+app.use(checkRoutes)
+app.use(cartRoutes)
 
 //Levantar el servidor
 export const initServer = ()=>{

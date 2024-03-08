@@ -8,7 +8,8 @@ import {
     registerUser, 
     login, 
     updateUser, 
-    deleteU
+    deleteU,
+    registerAdmin
 } from './user.controller.js';
 
 const api = express.Router();
@@ -22,5 +23,6 @@ api.post('/login', login)
 api.get('/test', [validateJwt, isAdmin], test)
 api.put('/updateUser/:id', [validateJwt], updateUser) //Middleware -> funciones intermedias que sirven para validar.
 api.delete('/delete/:id', [validateJwt], deleteU)
+api.post('/registerAdmin', registerAdmin)
 
 export default api
