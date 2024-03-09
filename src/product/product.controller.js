@@ -88,11 +88,11 @@ export const outOfStock = async (req, res) => {
 
 export const bestSellers = async (req, res) => {
     try {
-        const { limit = 5 } = req.query // Obtener el límite de productos a devolver desde la consulta
+        const { limit = 5 } = req.query
         const bestSellers = await Product.find()
-            .sort({ salesCount: -1 }) // Ordenar por salesCount en orden descendente
-            .limit(parseInt(limit)) // Limitar la cantidad de productos devueltos
-            .populate('category') // Poblar la categoría de cada producto
+            .sort({ salesCount: -1 })
+            .limit(parseInt(limit))
+            .populate('category')
 
         if (bestSellers.length === 0) {
             return res.status(404).send({ message: 'There are no sells' })
@@ -108,23 +108,32 @@ export const bestSellers = async (req, res) => {
 export const productsByCategory = async (req, res) => {
     try {
         const { categoryId } = req.params
-
-        // Verificar si la categoría existe
         const category = await Category.findOne({ _id: categoryId })
         if (!category) {
             return res.status(404).send({ message: 'The category does not exist' })
         }
-
-        // Obtener los productos que pertenecen a la categoría
         const products = await Product.find({ category: category._id }).populate('category')
 
         if (products.length === 0) {
             return res.status(404).send({ message: 'There are no products in this category' })
         }
-
         return res.send({ message: 'Products of the category', data: products })
     } catch (error) {
         console.error(error)
         return res.status(500).send({ message: 'Umm something went wrong' })
     }
 }
+
+export const findProductEZ = async (req, res) => {
+    try {
+        const { search } = req.params;
+        const product = await Product.find({ name: { $regex: `.*${search}.*`, $options: 'i' } }).populate('category');
+        if (product.length === 0) {
+            return res.status(404).send({ message: 'The product you are looking for was not found' });
+        }
+        return res.send({ message: 'Product found', data: product });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({ message: 'Something went wrong' });
+    }
+};

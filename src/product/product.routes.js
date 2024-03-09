@@ -11,7 +11,8 @@ import {
     listCate,
     outOfStock,
     bestSellers,
-    productsByCategory
+    productsByCategory,
+    findProductEZ
 } from './product.controller.js';
 
 const api = express.Router();
@@ -24,5 +25,6 @@ api.get('/listCate', listCate)
 api.get('/outOfStock', [validateJwt, isAdmin], outOfStock)
 api.get('/bestSellers', bestSellers)
 api.get('/productsByCategory/:categoryId', productsByCategory)
+api.get('/findProductEZ/:search', findProductEZ)
 
 export default api

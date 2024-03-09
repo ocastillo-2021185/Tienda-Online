@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "TiendaOnlineUser",
-    "dateExported": "2024-03-08T17:32:50.286Z",
+    "dateExported": "2024-03-09T02:38:04.814Z",
     "version": "1.1",
     "folders": [
         {
@@ -86,7 +86,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-08T00:24:32.030Z",
-            "modified": "2024-03-08T13:18:59.369Z",
+            "modified": "2024-03-09T00:56:25.552Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -100,7 +100,7 @@
                 },
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk4OTkxNTUsImV4cCI6MTcwOTkzNTE1NX0.lu7EJ7h8XzbbOsYqwFFkMusE6WT2A1ApSX834xqvj9s"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk5NDQ0MTYsImV4cCI6MTcwOTk4MDQxNn0.6gMZ4TLW-kAqEq6moutncU1s_u3cIDy0kIu7IE9l7Bk"
                 }
             ],
             "params": [],
@@ -110,7 +110,7 @@
                 "form": [
                     {
                         "name": "name",
-                        "value": "Hoddie"
+                        "value": "Caps"
                     },
                     {
                         "name": "price",
@@ -371,6 +371,21 @@
             "tests": []
         },
         {
+            "_id": "dbf54f18-ebe7-4d03-82ec-6ad448ba4625",
+            "colId": "9e33697c-fcae-44c4-9cd5-6e037d9e5a50",
+            "containerId": "bf0eadf2-e68f-47fc-ae81-97bc9283277c",
+            "name": "findProductEZ SI",
+            "url": "localhost:2656/findProductEZ/ni",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2024-03-09T02:20:13.931Z",
+            "modified": "2024-03-09T02:28:49.379Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
             "_id": "ccd7f7a2-f281-4d1e-82c5-3f000d868d71",
             "colId": "9e33697c-fcae-44c4-9cd5-6e037d9e5a50",
             "containerId": "6ef9016f-2a16-4b21-882c-9b7ce76c5533",
@@ -548,15 +563,25 @@
             "colId": "9e33697c-fcae-44c4-9cd5-6e037d9e5a50",
             "containerId": "bf0eadf2-e68f-47fc-ae81-97bc9283277c",
             "name": "updateCheckItem SI",
-            "url": "localhost:2656/updateCheckItem/65eb484e557b5fa35b246b82",
+            "url": "localhost:2656/updateCheckItem/65ebbaf2a6f57523f5f77fe0",
             "method": "PUT",
             "sortNum": 80000,
             "created": "2024-03-08T04:25:10.964Z",
-            "modified": "2024-03-08T17:24:35.408Z",
+            "modified": "2024-03-09T01:58:10.262Z",
             "headers": [
                 {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk4OTkxNTUsImV4cCI6MTcwOTkzNTE1NX0.lu7EJ7h8XzbbOsYqwFFkMusE6WT2A1ApSX834xqvj9s"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk5NDQ0MTYsImV4cCI6MTcwOTk4MDQxNn0.6gMZ4TLW-kAqEq6moutncU1s_u3cIDy0kIu7IE9l7Bk"
                 }
             ],
             "params": [],
@@ -565,12 +590,12 @@
                 "raw": "",
                 "form": [
                     {
-                        "name": "quantity",
-                        "value": "6"
-                    },
-                    {
                         "name": "productId",
                         "value": "65ea710235f0dd7b492b895d"
+                    },
+                    {
+                        "name": "quantity",
+                        "value": "6"
                     }
                 ]
             },
@@ -596,16 +621,26 @@
             "_id": "227c3a11-7cb3-4c3c-b155-4093c6e5f1f7",
             "colId": "9e33697c-fcae-44c4-9cd5-6e037d9e5a50",
             "containerId": "bf0eadf2-e68f-47fc-ae81-97bc9283277c",
-            "name": "cart",
+            "name": "cart SI",
             "url": "localhost:2656/add",
             "method": "POST",
             "sortNum": 90000,
             "created": "2024-03-08T06:24:03.699Z",
-            "modified": "2024-03-08T17:23:50.923Z",
+            "modified": "2024-03-09T01:27:14.377Z",
             "headers": [
                 {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk4OTkxNTUsImV4cCI6MTcwOTkzNTE1NX0.lu7EJ7h8XzbbOsYqwFFkMusE6WT2A1ApSX834xqvj9s"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU5NDI3ZmMzZjJhYTViZTUwM2NhZWEiLCJ1c2VybmFtZSI6Im9jYXN0IiwibmFtZSI6Ik9tYXIiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDk5NDQ0MTYsImV4cCI6MTcwOTk4MDQxNn0.6gMZ4TLW-kAqEq6moutncU1s_u3cIDy0kIu7IE9l7Bk"
                 }
             ],
             "params": [],
